@@ -18,10 +18,10 @@ services:
       - caddy_connect
     labels:
         caddy: (cloudflare)
-        caddy.tls.dns.cloudflare: "{env.CADDY_CLOUDFLARE_DNS_TOKEN}"
-        caddy.tls.dns.propagation_delay: "{env.CADDY_DNS_PROPAGATION_DELAY}"
-        caddy.tls.dns.propagation_timeout: "{env.CADDY_DNS_PROPAGATION_TIMEOUT}"
-        caddy.tls.dns.resolvers: "{env.CADDY_DNS_RESOLVERS}"
+        caddy.tls.dns: cloudflare "{env.CADDY_CLOUDFLARE_DNS_TOKEN}"
+        caddy.tls.propagation_delay: "{env.CADDY_DNS_PROPAGATION_DELAY}"
+        caddy.tls.propagation_timeout: "{env.CADDY_DNS_PROPAGATION_TIMEOUT}"
+        caddy.tls.resolvers: "{env.CADDY_DNS_RESOLVERS}"
 
 
 volumes:
