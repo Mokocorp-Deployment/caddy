@@ -3,8 +3,14 @@ name: Build and Push Docker Image
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'Dockerfile'
+      - 'VERSION'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'Dockerfile'
+      - 'VERSION'
 
 env:
   REGISTRY: ghcr.io
