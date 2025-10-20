@@ -1,0 +1,32 @@
+services:
+  caddy:
+    image: ghcr.io/mokocorp-deployment/caddy:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    env_file:
+      - .env
+      - stack.env
+    networks:
+      - caddy_connect
+    labels:
+      - "caddy.email={env.CADDY_EMAIL}"
+      - "caddy.cloudflare.tls.dns.cloudflare={env.CADDY_CLOUDFLARE_DNS_TOKEN}"
+      - "caddy.cloudflare.tls.dns.propagation_delay={env.CADDY_DNS_PROPAGATION_DELAY}"
+      - "caddy.cloudflare.tls.dns.propagation_timeout={env.CADDY_DNS_PROPAGATION_TIMEOUT}"
+      - "caddy.cloudflare.tls.dns.resolvers={env.CADDY_DNS_RESOLVERS}"
+
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  caddy_connect:
+    external: true
