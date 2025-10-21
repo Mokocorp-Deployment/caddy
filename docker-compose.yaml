@@ -17,7 +17,7 @@ services:
       - caddy_network
       - caddy_connect
     labels:
-        caddy_0: "*.{env.CADDY_CLOUDFLARE_DOMAIN}"
+        caddy_0: "{env.CADDY_CLOUDFLARE_DOMAIN}"
         caddy_0.tls.dns: cloudflare "{env.CADDY_CLOUDFLARE_DNS_TOKEN}"
         caddy_1.email: "{env.CADDY_EMAIL}"
         # caddy.tls.propagation_delay: "{env.CADDY_DNS_PROPAGATION_DELAY}"
