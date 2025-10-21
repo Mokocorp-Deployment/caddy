@@ -3,9 +3,9 @@ services:
     image: ghcr.io/mokocorp-deployment/caddy:latest
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
+      - "${IP}:80:80"
+      - "${IP}:443:443"
+      - "${IP}:443:443/udp"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - caddy_data:/data
