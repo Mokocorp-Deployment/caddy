@@ -19,9 +19,9 @@ services:
     labels:
         caddy: "*.{env.CADDY_CLOUDFLARE_DOMAIN}"
         caddy.tls.dns: cloudflare "{env.CADDY_CLOUDFLARE_DNS_TOKEN}"
-        caddy.tls.propagation_delay: "{env.CADDY_DNS_PROPAGATION_DELAY}"
-        caddy.tls.propagation_timeout: "{env.CADDY_DNS_PROPAGATION_TIMEOUT}"
-        caddy.tls.resolvers: "{env.CADDY_DNS_RESOLVERS}"
+        # caddy.tls.propagation_delay: "{env.CADDY_DNS_PROPAGATION_DELAY}"
+        # caddy.tls.propagation_timeout: "{env.CADDY_DNS_PROPAGATION_TIMEOUT}"
+        # caddy.tls.resolvers: "{env.CADDY_DNS_RESOLVERS}"
 
 
 volumes:
